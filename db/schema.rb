@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_203702) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_01_221707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,10 +18,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_203702) do
     t.string "name"
     t.string "evolve"
     t.string "evolution_stage"
-    t.string "type"
+    t.string "typing"
     t.string "pokedex_entry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "images"
   end
 
 end
