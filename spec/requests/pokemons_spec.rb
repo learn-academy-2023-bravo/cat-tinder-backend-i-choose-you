@@ -40,4 +40,25 @@ RSpec.describe "Pokemons", type: :request do
      expect(pokemon.images).to eq 'asdfghjkl'
     end
   end
+describe 'cannot create a pokemon without valid attributes' do
+  it 'cannot create a pokemon without a name' do
+    poke_params = {
+      pokemon: {
+        evolve: 'yes',
+        evolution_stage: '2/3',
+        typing: 'fire',
+        pokedex_entry: 'charmeleon, the Flame Pokémon and the evolved form of Charmander. Charmeleon knocks down opponents with its tail, then defeats them using razor-sharp claws.',
+        images: 'asdfghjkl'
+      }
+    }
+    post '/pokemons', params: poke_params
+    pokemon = JSON.parse(response.body)
+
+    expect(response).to have_http_status(422)
+    expect(pokemon['name']).to include "cant be blank"
+  end
+end
+
+
+
 end
