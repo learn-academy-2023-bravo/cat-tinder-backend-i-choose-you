@@ -54,7 +54,7 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['name']).to include 'cant be blank'
+      expect(pokemon['name']).to include "can't be blank"
     end
     it 'cannot create a pokemon without evolve' do
       poke_params = {
@@ -70,7 +70,7 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['evolve']).to include 'cant be blank'
+      expect(pokemon['evolve']).to include "can't be blank"
     end
     it 'cannot create a pokemon without evolution_stage' do
       poke_params = {
@@ -86,7 +86,7 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['evolution_stage']).to include 'cant be blank'
+      expect(pokemon['evolution_stage']).to include "can't be blank"
     end
     it 'cannot create a pokemon without typing' do
       poke_params = {
@@ -102,7 +102,7 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['typing']).to include 'cant be blank'
+      expect(pokemon['typing']).to include "can't be blank"
     end
     it 'cannot create a pokemon without pokedex_entry' do
       poke_params = {
@@ -118,7 +118,7 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['pokedex_entry']).to include 'cant be blank'
+      expect(pokemon['pokedex_entry']).to include "can't be blank"
     end
     it 'cannot create a pokemon without images' do
       poke_params = {
@@ -134,35 +134,10 @@ RSpec.describe 'Pokemons', type: :request do
       pokemon = JSON.parse(response.body)
 
       expect(response).to have_http_status(422)
-      expect(pokemon['images']).to include 'cant be blank'
+      expect(pokemon['images']).to include "can't be blank"
     end
   end
 end
 
-  # describe 'cannot update a pokemon without valid attributes' do
-  #   it 'cannot update a pokemon without a name' do
-  #     poke_params = {
-  #       pokemon: {
-  #         name: 'Charmeleon',
-  #         evolve: 'yes',
-  #         evolution_stage: '2/3',
-  #         typing: 'fire',
-  #         pokedex_entry: 'charmeleon, the Flame Pokémon and the evolved form of Charmander. Charmeleon knocks down opponents with its tail, then defeats them using razor-sharp claws.',
-  #         images: 'https://www.pngmart.com/files/22/Charmeleon-Pokemon-PNG-Pic.png'
-  #       }
-  #     }
-  #     post '/pokemons', params: poke_params
-  #     pokemon = Pokemon.first
-  #     update_params = {
-  #       pokemon: {
-  #         name: '',
-  #         evolve: 'no',
-  #         evolution_stage: '3/3',
-  #         typing: 'water',
-  #         pokedex_entry: 'Charmeleon, the Flame Pokémon. It has razor-sharp claws and its tail is exceptionally strong.',
-  #         images: 'sdfghjk'
-  #       }
-  #     }
-  #   end
-  # end
+
 
