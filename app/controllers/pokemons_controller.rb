@@ -23,8 +23,11 @@ class PokemonsController < ApplicationController
     end
   end
 
-  private
+  def delete
+    pokemon = Pokemon.find(params[:id])
+    pokemon.destroy
 
+  private
   def poke_params
     params.require(:pokemon).permit(:name, :evolve, :evolution_stage, :typing, :pokedex_entry, :images)
   end
