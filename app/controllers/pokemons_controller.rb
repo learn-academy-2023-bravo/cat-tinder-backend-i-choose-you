@@ -25,7 +25,12 @@ class PokemonsController < ApplicationController
 
   def delete
     pokemon = Pokemon.find(params[:id])
-    pokemon.destroy
+    if pokemon.destroy
+      render json: pokemon
+    else
+      render json: pokemon.errors, status: 422
+    end
+  end
 
   private
   def poke_params
